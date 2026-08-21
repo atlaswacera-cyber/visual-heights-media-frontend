@@ -1,7 +1,49 @@
 .app {
   min-height: 100vh;
+  background-color: #090806;
+  color: #f7f1e4;
+}
+
+.app__content {
+  padding: 96px 40px;
+}
+
+.app__intro {
+  width: min(100%, 820px);
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.app__eyebrow {
+  margin: 0 0 16px;
+  color: #f2c879;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .app__title {
   margin: 0;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.95;
+}
+
+.app__text {
+  max-width: 540px;
+  margin: 24px auto 0;
+  color: #d4c7ad;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.app__search-result {
+  margin: 16px auto 0;
+  color: #d4c7ad;
+  text-align: center;
+}
+
+@media screen and (max-width: 540px) {
+  .app__content {
+    padding: 64px 20px;
+  }
 }
