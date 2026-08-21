@@ -1,40 +1,25 @@
-import { useState } from "react";
 import "./App.css";
+
 import Header from "./components/Header/Header.jsx";
-import SearchForm from "./components/SearchForm/SearchForm.jsx";
+
 import About from "./components/About/About.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import Hero from "./components/Hero/Hero.jsx";
+import Services from "./components/Services/Services.jsx";
+import Portfolio from "./components/Portfolio/Portfolio.jsx";
 
 function App() {
-  const [lastSearch, setLastSearch] = useState("");
-
-  function handleSearch(keyword) {
-    setLastSearch(keyword);
-  }
-
   return (
     <div className="app">
       <Header />
 
       <main className="app__content">
-        <section className="app__intro">
-          <p className="app__eyebrow">A Media Production Company</p>
-          <h1 className="app__title">Visual Heights Media</h1>
-          <p className="app__text">
-            Crafted visuals for stories meant to be remembered.
-          </p>
-        </section>
-
-        <SearchForm onSearch={handleSearch} />
-
-        {lastSearch && (
-          <p className="app__search-result" aria-live="polite">
-            Inspiration search ready for: {lastSearch}
-          </p>
-        )}
+        <Hero />
+        <Services />
+        <Portfolio />
+        <About />
       </main>
 
-      <About />
       <Footer />
     </div>
   );
