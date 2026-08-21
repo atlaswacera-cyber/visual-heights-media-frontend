@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import SearchForm from "./components/SearchForm/SearchForm.jsx";
+import About from "./components/About/About.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   const [lastSearch, setLastSearch] = useState("");
@@ -31,6 +33,9 @@ function App() {
           </p>
         )}
       </main>
+
+      <About />
+      <Footer />
     </div>
   );
 }
