@@ -1,31 +1,34 @@
+import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import MediaGrid from "../MediaGrid/MediaGrid.jsx";
+import Preloader from "../Preloader/Preloader.jsx";
+import NothingFound from "../NothingFound/NothingFound.jsx";
+import { searchPhotos, searchVideos } from "../../utils/PexelsApi.js";
 import "./InspirationPage.css";
 
-const sampleMedia = [
-  {
-    id: "sample-1",
-    type: "Photo",
-    creator: "Sample creator",
-    title: "Cinematic light study",
-  },
-  {
-    id: "sample-2",
-    type: "Video",
-    creator: "Sample creator",
-    title: "Movement and community",
-  },
-  {
-    id: "sample-3",
-    type: "Photo",
-    creator: "Sample creator",
-    title: "City texture at night",
-  },
-];
-
 function InspirationPage() {
-  function handleSearch(keyword) {
-    console.log("Search submitted:", keyword);
+  const [media, setMedia] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
+
+  async function handleSearch(keyword) {
+    setIsLoading(true);
+    setError("");
+    setHasSearched(true);
+
+    try {
+      const [photos, videos] = await Promise.all([
+        searchPhotos(keyword),
+        searchVideos(keyword),
+      ]);
+      setMedia([...photos, ...videos]);
+    } catch (searchError) {
+      setMedia([]);
+      setError(searchError.message || "Unable to load inspiration right now.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -42,7 +45,16 @@ function InspirationPage() {
 
         <SearchForm onSearch={handleSearch} />
 
-        <MediaGrid items={sampleMedia} />
+        {isLoading && <Preloader />}
+        {!isLoading && error && (
+          <p className="inspiration-page__error" role="alert">
+            {error}
+          </p>
+        )}
+        {!isLoading && !error && hasSearched && media.length === 0 && (
+          <NothingFound />
+        )}
+        {!isLoading && !error && media.length > 0 && <MediaGrid items={media} />}
       </div>
     </main>
   );
