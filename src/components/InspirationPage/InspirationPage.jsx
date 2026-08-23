@@ -8,7 +8,7 @@ import "./InspirationPage.css";
 
 const RESULTS_PER_PAGE = 3;
 
-function InspirationPage() {
+function InspirationPage({ isLoggedIn, savedMedia, onSave, onLoginClick }) {
   const [media, setMedia] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -62,7 +62,12 @@ function InspirationPage() {
         )}
         {!isLoading && !error && media.length > 0 && (
           <>
-            <MediaGrid items={media.slice(0, visibleResults)} />
+            <MediaGrid
+              items={media.slice(0, visibleResults)}
+              savedMedia={savedMedia}
+              onSave={isLoggedIn ? onSave : undefined}
+              onLoginClick={onLoginClick}
+            />
             {visibleResults < media.length && (
               <button
                 className="inspiration-page__show-more"
