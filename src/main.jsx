@@ -6,14 +6,16 @@ import "./index.css";
 import App from "./App.jsx";
 
 const redirectedRoute = new URLSearchParams(window.location.search).get("route");
+const basePath = import.meta.env.BASE_URL;
 
 if (redirectedRoute) {
-  window.history.replaceState(null, "", redirectedRoute);
+  const routePath = redirectedRoute.replace(/^\//, "");
+  window.history.replaceState(null, "", `${basePath}${routePath}`);
 }
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basePath}>
       <App />
     </BrowserRouter>
   </StrictMode>,
