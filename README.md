@@ -1,16 +1,68 @@
-# React + Vite
+# Visual Heights Media
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React frontend for Visual Heights Media. It presents the studio's
+portfolio, provides a Pexels-powered visual-research experience, and includes a
+frontend-only client dashboard demonstration.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Public homepage with services, portfolio, and about sections
+- Client-side routes for the homepage, inspiration search, dashboard, and 404 page
+- Pexels photo and video search with loading, error, empty, and Show More states
+- Simulated browser-only sign-in and saved-inspiration dashboard
+- Responsive layouts, including a 320px mobile layout
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router
+- Pexels API
+- CSS with BEM-style component class names
 
-## Expanding the ESLint configuration
+## Run locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Create a local environment file from the example:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Add your Pexels API key to `.env`:
+
+   ```text
+   VITE_PEXELS_API_KEY=your_pexels_api_key_here
+   ```
+
+   Never commit `.env` or your API key.
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## Quality checks
+
+```bash
+npm run lint
+npm run build
+```
+
+## Deployment
+
+The project deploys to GitHub Pages through the GitHub Actions workflow in
+`.github/workflows/deploy.yml`. Before the first deployment, add a repository
+Actions secret named `VITE_PEXELS_API_KEY` with your Pexels API key. The key is
+used only during the Pages build and is never committed to this repository.
+
+## Links
+
+- Deployed project: https://atlaswacera-cyber.github.io/visual-heights-media-frontend/
+- Project pitch video: Coming soon
