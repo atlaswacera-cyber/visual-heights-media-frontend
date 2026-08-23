@@ -1,0 +1,61 @@
+.login-modal {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.login-modal__dialog {
+  position: relative;
+  width: min(100%, 480px);
+  border: 1px solid #6b5a37;
+  padding: 40px;
+  background: #16130d;
+  color: #f7f1e4;
+}
+
+.login-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  color: #f7f1e4;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.login-modal__eyebrow {
+  margin: 0 0 12px;
+  color: #f2c879;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.login-modal__title {
+  margin: 0;
+}
+
+.login-modal__text {
+  color: #d8d0bf;
+  line-height: 1.6;
+}
+
+.login-modal__submit {
+  border: 1px solid #f2c879;
+  padding: 12px 20px;
+  background: #f2c879;
+  color: #090806;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.login-modal__close:focus-visible,
+.login-modal__submit:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}

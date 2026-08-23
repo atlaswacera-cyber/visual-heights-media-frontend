@@ -28,3 +28,22 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__auth-button {
+  border: 1px solid #f2c879;
+  padding: 8px 12px;
+  background: transparent;
+  color: #f2c879;
+  cursor: pointer;
+}
+
+.header__auth-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}

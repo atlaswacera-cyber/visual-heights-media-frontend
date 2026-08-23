@@ -47,3 +47,22 @@
   color: #f7f1e4;
   font-size: 1.2rem;
 }
+
+.media-card__action {
+  margin-top: 16px;
+  border: 1px solid #f2c879;
+  padding: 8px 10px;
+  background: transparent;
+  color: #f2c879;
+  cursor: pointer;
+}
+
+.media-card__action:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+.media-card__action:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
