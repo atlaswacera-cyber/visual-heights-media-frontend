@@ -6,16 +6,20 @@ import NothingFound from "../NothingFound/NothingFound.jsx";
 import { searchPhotos, searchVideos } from "../../utils/PexelsApi.js";
 import "./InspirationPage.css";
 
+const RESULTS_PER_PAGE = 3;
+
 function InspirationPage() {
   const [media, setMedia] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+  const [visibleResults, setVisibleResults] = useState(RESULTS_PER_PAGE);
 
   async function handleSearch(keyword) {
     setIsLoading(true);
     setError("");
     setHasSearched(true);
+    setVisibleResults(RESULTS_PER_PAGE);
 
     try {
       const [photos, videos] = await Promise.all([
@@ -23,9 +27,11 @@ function InspirationPage() {
         searchVideos(keyword),
       ]);
       setMedia([...photos, ...videos]);
-    } catch (searchError) {
+    } catch {
       setMedia([]);
-      setError(searchError.message || "Unable to load inspiration right now.");
+      setError(
+        "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -43,7 +49,7 @@ function InspirationPage() {
           results are separate from Visual Heights Media portfolio work.
         </p>
 
-        <SearchForm onSearch={handleSearch} />
+        <SearchForm onSearch={handleSearch} isLoading={isLoading} />
 
         {isLoading && <Preloader />}
         {!isLoading && error && (
@@ -54,7 +60,20 @@ function InspirationPage() {
         {!isLoading && !error && hasSearched && media.length === 0 && (
           <NothingFound />
         )}
-        {!isLoading && !error && media.length > 0 && <MediaGrid items={media} />}
+        {!isLoading && !error && media.length > 0 && (
+          <>
+            <MediaGrid items={media.slice(0, visibleResults)} />
+            {visibleResults < media.length && (
+              <button
+                className="inspiration-page__show-more"
+                type="button"
+                onClick={() => setVisibleResults((count) => count + RESULTS_PER_PAGE)}
+              >
+                Show more
+              </button>
+            )}
+          </>
+        )}
       </div>
     </main>
   );

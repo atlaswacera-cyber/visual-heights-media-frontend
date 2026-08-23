@@ -39,6 +39,22 @@
   text-align: center;
 }
 
+.inspiration-page__show-more {
+  display: block;
+  margin: 32px auto 0;
+  border: 1px solid #f2c879;
+  padding: 14px 20px;
+  background: transparent;
+  color: #f2c879;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.inspiration-page__show-more:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 @media screen and (max-width: 540px) {
   .inspiration-page {
     padding: 64px 20px;
