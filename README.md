@@ -65,4 +65,5 @@ used only during the Pages build and is never committed to this repository.
 ## Links
 
 - Deployed project: https://atlaswacera-cyber.github.io/visual-heights-media-frontend/
-- Project pitch video: Coming soon
+
+- Project pitch video: [Watch the project pitch on Loom](https://www.loom.com/share/04f5a7b9d7274b0c8cddfaa33804545b)
