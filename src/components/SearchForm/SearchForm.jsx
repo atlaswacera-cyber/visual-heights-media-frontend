@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch, isLoading }) {
+function SearchForm({ onSearch }) {
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
 
@@ -20,7 +20,7 @@ function SearchForm({ onSearch, isLoading }) {
   }
 
   return (
-    <form className="search-form" onSubmit={handleSubmit} aria-busy={isLoading}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <label className="search-form__label" htmlFor="inspiration-search">
         Search visual inspiration
       </label>
@@ -34,11 +34,10 @@ function SearchForm({ onSearch, isLoading }) {
           value={keyword}
           onChange={(event) => setKeyword(event.target.value)}
           placeholder="Try cinematic lighting, portraits, or city nights"
-          disabled={isLoading}
         />
 
-        <button className="search-form__button" type="submit" disabled={isLoading}>
-          {isLoading ? "Searching…" : "Search"}
+        <button className="search-form__button" type="submit">
+          Search
         </button>
       </div>
 
