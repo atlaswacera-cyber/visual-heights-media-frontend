@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+  background-color: #090806;
+  color: #f7f1e4;
+}
+
+.app__content {
+  padding: 0;
+}

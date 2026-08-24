@@ -1,0 +1,67 @@
+.dashboard-page,
+.page-not-found {
+  display: grid;
+  min-height: calc(100vh - 72px);
+  place-items: center;
+  padding: 80px 24px;
+  background-color: #090806;
+  color: #f7f1e4;
+}
+
+.dashboard-page__content,
+.page-not-found__content {
+  width: min(100%, 1200px);
+  max-width: 1200px;
+  text-align: center;
+}
+
+.dashboard-page__eyebrow,
+.page-not-found__code {
+  margin: 0 0 16px;
+  color: #f2c879;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dashboard-page__title,
+.page-not-found__title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+.dashboard-page__text,
+.page-not-found__text {
+  margin: 24px 0;
+  color: #d8d0bf;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.page-not-found__link {
+  display: inline-block;
+  color: #090806;
+  background-color: #f2c879;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.dashboard-page__login-button {
+  border: 1px solid #f2c879;
+  padding: 12px 20px;
+  background: #f2c879;
+  color: #090806;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.dashboard-page__login-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.page-not-found__link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
