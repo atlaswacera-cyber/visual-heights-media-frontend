@@ -47,18 +47,3 @@
   outline: 2px solid #fff;
   outline-offset: 3px;
 }
-
-@media screen and (max-width: 540px) {
-  .header {
-    justify-content: flex-end;
-    padding: 0 20px;
-  }
-
-  .header__brand-link {
-    display: none;
-  }
-
-  .header__actions {
-    gap: 12px;
-  }
-}
