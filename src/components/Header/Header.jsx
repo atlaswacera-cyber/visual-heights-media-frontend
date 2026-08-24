@@ -3,7 +3,7 @@ import logo from "../../images/vhm-logo.png";
 import Navigation from "../Navigation/Navigation.jsx";
 import "./Header.css";
 
-function Header({ isLoggedIn, onLoginClick, onLogout }) {
+function Header() {
   return (
     <header className="header">
       <Link className="header__brand-link" to="/">
@@ -14,22 +14,7 @@ function Header({ isLoggedIn, onLoginClick, onLogout }) {
         />
         <span className="header__brand">Visual Heights Media</span>
       </Link>
-      <div className="header__actions">
-        <Navigation />
-        {isLoggedIn ? (
-          <button className="header__auth-button" type="button" onClick={onLogout}>
-            Sign out
-          </button>
-        ) : (
-          <button
-            className="header__auth-button"
-            type="button"
-            onClick={onLoginClick}
-          >
-            Login
-          </button>
-        )}
-      </div>
+      <Navigation />
     </header>
   );
 }

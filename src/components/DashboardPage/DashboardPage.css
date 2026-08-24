@@ -10,8 +10,7 @@
 
 .dashboard-page__content,
 .page-not-found__content {
-  width: min(100%, 1200px);
-  max-width: 1200px;
+  max-width: 680px;
   text-align: center;
 }
 
@@ -45,20 +44,6 @@
   background-color: #f2c879;
   padding: 12px 20px;
   text-decoration: none;
-}
-
-.dashboard-page__login-button {
-  border: 1px solid #f2c879;
-  padding: 12px 20px;
-  background: #f2c879;
-  color: #090806;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.dashboard-page__login-button:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 4px;
 }
 
 .page-not-found__link:focus-visible {
