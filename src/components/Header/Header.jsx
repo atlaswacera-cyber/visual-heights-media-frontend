@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../images/vhm-logo.svg";
+import logo from "../../images/vhm-logo.png";
 import Navigation from "../Navigation/Navigation.jsx";
 import "./Header.css";
 
