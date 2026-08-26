@@ -51,7 +51,7 @@
 @media screen and (max-width: 540px) {
   .header {
     justify-content: flex-end;
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .header__brand-link {

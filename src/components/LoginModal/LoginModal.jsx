@@ -1,18 +1,31 @@
+import { useEffect } from "react";
 import "./LoginModal.css";
 
 function LoginModal({ onClose, onLogin }) {
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   function handleSubmit(event) {
     event.preventDefault();
     onLogin();
   }
 
   return (
-    <div className="login-modal" role="presentation">
+    <div className="login-modal" role="presentation" onMouseDown={onClose}>
       <div
         className="login-modal__dialog"
         role="dialog"
         aria-modal="true"
         aria-labelledby="login-modal-title"
+        onMouseDown={(event) => event.stopPropagation()}
       >
         <button
           className="login-modal__close"
